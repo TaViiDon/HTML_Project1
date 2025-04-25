@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Girls in ICT Appreciation 💻🌸</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card-container {
+      perspective: 1500px;
+    }
+
+    .card {
+      width: 380px;
+      height: 280px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+
+    .card-container:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-front {
+      background: linear-gradient(135deg, #f06292, #f8bbd0);
+      color: white;
+      font-size: 1.4em;
+      font-weight: bold;
+      flex-direction: column;
+    }
+
+    .card-front h1 {
+      margin: 0;
+    }
+
+    .card-back {
+      background: white;
+      transform: rotateY(180deg);
+      padding: 20px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .card-back h2 {
+      color: #e91e63;
+      margin-bottom: 10px;
+      font-size: 28px;
+
+    }
+
+    .card-back p {
+      color: #444;
+      font-size: 16px;
+    }
+
+    .speak-btn {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .speak-btn:hover {
+      background: #c2185b;
+    }
+
+    /* Improved scroll box styles */
+    #scroll-box {
+      max-height: 380px;
+      height: 380px;
+      overflow-y: auto;
+      padding: 15px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 10px 0;
+      scrollbar-width: thin;
+      scrollbar-color: #f8bbd0 #fff;
+    }
+
+    /* Custom scrollbar for WebKit browsers */
+    #scroll-box::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #scroll-box::-webkit-scrollbar-track {
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    #scroll-box::-webkit-scrollbar-thumb {
+      background-color: #f8bbd0;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+
+    #scroll-box::-webkit-scrollbar-thumb:hover {
+      background-color: #f06292;
+    }
+
+    #message {
+      color: #333;
+      font-size: 18px;
+      line-height: 1.7;
+      text-align: left;
+      padding-right: 8px; /* Give space for scrollbar */
+    }
+    .profile-image {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  object-fit: cover;
+  margin-top: 15px; 
+  border: 3px solid white; 
+}
+  </style>
+</head>
+<body>
+
+<div class="card-container">
+  <div class="card">
+    <!-- Front of the card -->
+    <div class="card-face card-front">
+      <div>
+        <h2>Yanique Wallace💐</h2>
+        <img src="yw_img/YW.jpg" alt="Yanique Wallace" class="profile-image"> 
+      </div>
+    </div>
+
+    <!-- Back of the card -->
+    <div class="card-face card-back">
+        <h2 style="color: #e91e63; margin-bottom: 15px; font-size: 24px;">You're Truly Appreciated</h2>
+        <div id="scroll-box">
+          <p id="message">
+            Yanique,<br><br>
+            I just wanted to take a moment to express my gratitude for everything you do. Your daily presence is a gift that I cherish, and I want you to know how much you are appreciated and loved by everyone around you.<br><br>
+            You have a unique way of making people feel special, and your kindness and warmth are truly inspiring. Your grace, the warmth in your hugs, and the softness of your voice have left a lasting impression on me since the very first day we met.<br><br>
+            I just wanted to remind you that your daily presence is appreciated and loved by everyone. But for me, I want to take a moment to express how truly grateful I am, ever since the very first day I met you and shook your hand. The grace in your eyes, the warmth in your hugs, and the softness of your voice have stayed with me they will always be thoughts I hold dear. Your open hearted helpfulness, the sweetness of your kindness, and the gratitude you extend so effortlessly continue to inspire me. There's so much more I could say, but for now, I just hope you have an amazing day. Happy Women in ICT Day you truly embody the strength and beauty of this celebration.<br><br>
+            With appreciation, <strong>Tavi G</strong>
+          </p>
+        </div>
+        <button class="speak-btn" onclick="speak()" style="
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        cursor: pointer;
+      ">Click to hear it</button>
+      </div>
+<script>
+  function speak() {
+    const message = document.getElementById('message').innerText;
+    const utterance = new SpeechSynthesisUtterance(message);
+
+    const voices = speechSynthesis.getVoices();
+
+    // Try to find a more feminine English voice
+    const preferredVoices = [
+      'Google UK English Female',
+      'Google US English',
+      'Microsoft Zira Desktop - English (United States)', // Windows
+      'Samantha', // macOS
+    ];
+
+    utterance.voice = voices.find(v => preferredVoices.includes(v.name)) || voices[0];
+    utterance.rate = 1;
+
+    speechSynthesis.speak(utterance);
+  }
+
+  // Preload voices after they're loaded by the browser
+  window.speechSynthesis.onvoiceschanged = () => {
+    speechSynthesis.getVoices(); // triggers voice loading
+  };
+</script>
+
+</body>
+</html>
